@@ -1,0 +1,17 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+
+<h1>Clients</h1>
+<hr />
+<h2>Update @Model.GetName()'s name</h2>
+<form action="/client/edit/@Model.GetId()" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input name="client-id" type="hidden" value="@Model.GetId()">
+  <label for="new-client-name">Client name</label>
+  <input id="new-client-name" name="new-client-name" type="text">
+  <button type="submit">Submit</button>
+</form>
+
+<h5><a href="/">Return home</a></h5>

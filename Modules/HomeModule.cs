@@ -55,9 +55,32 @@ namespace HairSalonApp
             };
 
             Get["/clients/{id}"] = parameters => {
-               Client SelectedClient = Client.Find(parameters.id);
-               return View["client.cshtml", SelectedClient];
-           };
+                Client SelectedClient = Client.Find(parameters.id);
+                return View["client.cshtml", SelectedClient];
+            };
+
+            Get["/client/edit{id}"] = parameters => {
+                Client SelectedClient = Client.Find(parameters.id);
+                return View["edit_client_form.cshtml", SelectedClient];
+            };
+
+            Patch["/client/edit/{id}"] = parameters => {
+                Client SelectedClient = Client.Find(parameters.id);
+                SelectedClient.Update(Request.Form["new-client-name"]);
+                return View["client.cshtml", SelectedClient];
+            };
+
+            Get["client/delete/{id}"] = parameters => {
+                Client SelectedClient = Client.Find(parameters.id);
+                return View["client_delete.cshtml", SelectedClient];
+            };
+
+            Delete["client/delete/{id}"] = parameters => {
+                Client SelectedClient = Client.Find(parameters.id);
+                SelectedClient.Delete();
+                List<Client> AllClients = Client.GetAll();
+                return View["clients.cshtml", AllClients];
+            };
         }
     }
 }
