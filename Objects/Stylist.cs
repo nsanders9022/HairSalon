@@ -17,7 +17,7 @@ namespace HairSalonApp
             _experience = Experience;
         }
 
-        public override Bool Equals(System.Object otherStylist)
+        public override bool Equals(System.Object otherStylist)
         {
             if (!(otherStylist is Stylist))
             {
@@ -26,7 +26,7 @@ namespace HairSalonApp
             else
             {
                 Stylist newStylist = (Stylist) otherStylist;
-                bool idEqulity = this.GetId() == newStylist.GetId();
+                bool idEquality = this.GetId() == newStylist.GetId();
                 bool nameEquality = this.GetName() == newStylist.GetName();
                 bool experienceEquality = this.GetExperience() == newStylist.GetExperience();
                 return (idEquality && nameEquality && experienceEquality);
@@ -62,3 +62,6 @@ namespace HairSalonApp
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+
+    }
+}
