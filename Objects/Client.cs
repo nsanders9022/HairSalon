@@ -223,7 +223,7 @@ namespace HairSalonApp
                 foundClientId = rdr.GetInt32(0);
                 foundClientName = rdr.GetString(1);
                 foundClientHairStyle = rdr.GetString(2);
-                foundClientStylistId = rdr.GetInt32(4);
+                foundClientStylistId = rdr.GetInt32(3);
             }
 
             Client foundClient = new Client(foundClientName, foundClientHairStyle, foundClientStylistId, foundClientId);

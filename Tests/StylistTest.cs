@@ -106,7 +106,7 @@ namespace HairSalonApp
 
            //Act
            testStylist1.Delete();
-           
+
            List<Stylist> resultStylist = Stylist.GetAll();
            List<Stylist> testStylistList = new List<Stylist> {testStylist2};
 
@@ -118,6 +118,16 @@ namespace HairSalonApp
            Assert.Equal(testClientList, resultClient);
 
        }
+
+       [Fact]
+        public void Find_FindStylistById_stylist()
+        {
+            Stylist testStylist1 = new Stylist("Amanda", 1);
+            testStylist1.Save();
+
+           Stylist foundStylist = Stylist.Find(testStylist1.GetId());
+           Assert.Equal(testStylist1, foundStylist);
+        }
 
         public void Dispose()
         {
