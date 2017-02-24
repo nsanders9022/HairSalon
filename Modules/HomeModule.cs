@@ -59,15 +59,16 @@ namespace HairSalonApp
                 return View["client.cshtml", SelectedClient];
             };
 
-            Get["/client/edit{id}"] = parameters => {
+            Get["/client/edit/{id}"] = parameters => {
                 Client SelectedClient = Client.Find(parameters.id);
                 return View["edit_client_form.cshtml", SelectedClient];
             };
 
             Patch["/client/edit/{id}"] = parameters => {
                 Client SelectedClient = Client.Find(parameters.id);
-                SelectedClient.Update(Request.Form["new-client-name"]);
-                return View["client.cshtml", SelectedClient];
+                SelectedClient.Update(Request.Form["client-name"]);
+                List<Client> AllClients = Client.GetAll();
+                return View["clients.cshtml", AllClients];
             };
 
             Get["client/delete/{id}"] = parameters => {
@@ -94,15 +95,16 @@ namespace HairSalonApp
                 return View["stylists.cshtml", AllStylists];
             };
 
-            Get["/stylist/edit{id}"] = parameters => {
+            Get["/stylist/edit/{id}"] = parameters => {
                 Stylist SelectedStylist = Stylist.Find(parameters.id);
                 return View["edit_stylist_form.cshtml", SelectedStylist];
             };
 
             Patch["/stylist/edit/{id}"] = parameters => {
                 Stylist SelectedStylist = Stylist.Find(parameters.id);
-                SelectedStylist.Update(Request.Form["new-stylist-name"]);
-                return View["stylist.cshtml", SelectedStylist];
+                SelectedStylist.Update(Request.Form["stylist-name"]);
+                List<Stylist> AllStylists = Stylist.GetAll();
+                return View["stylists.cshtml", AllStylists];
             };
         }
     }

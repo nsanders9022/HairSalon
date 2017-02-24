@@ -9,8 +9,8 @@
 <form action="/stylist/edit/@Model.GetId()" method="post">
   <input type="hidden" name="_method" value="PATCH">
   <input name="stylist-id" type="hidden" value="@Model.GetId()">
-  <label for="new-stylist-name">Category name</label>
-  <input id="new-stylist-name" name="new-stylist-name" type="text">
+  <label for="stylist-name">Stylist name</label>
+  <input id="stylist-name" name="stylist-name" type="text">
   <button type="submit">Submit</button>
 </form>
 <h5><a href="/">Return home</a></h5>

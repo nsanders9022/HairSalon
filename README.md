@@ -5,7 +5,7 @@
 #### By _**Nicole Sanders**_
 
 ## Description
-This web application allows the user to enter in new stylists that work at the salon and clients that work with the stylists. The user will be able to update a client's name and delete clients when they stop frequenting the salon.
+This web application allows the user to enter in new stylists that work at the salon and clients that go to each stylist. The user will be able to update a client's name and delete clients when they stop frequenting the salon as well as update a stylist's name and delete the stylist.
 
 
 ## Setup/Installation Requirements
