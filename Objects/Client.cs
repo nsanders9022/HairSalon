@@ -125,7 +125,36 @@ namespace HairSalonApp
            }
            return AllClients;
         }
-        
+
+        public string StylistName()
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT name FROM stylists WHERE id = @StylistId;", conn);
+            SqlParameter stylistIdParameter = new SqlParameter("@StylistId", this.GetStylistId().ToString());
+            cmd.Parameters.Add(stylistIdParameter);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            string stylistName = "";
+
+            while(rdr.Read())
+            {
+                stylistName = rdr[0].ToString();
+            }
+
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
+            return stylistName;
+        }
+
+
         public static void DeleteAll()
         {
             SqlConnection conn = DB.Connection();

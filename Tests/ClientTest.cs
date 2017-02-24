@@ -47,8 +47,22 @@ namespace HairSalonApp
 
             List<Client> testClientList = new List<Client> {client2, client1};
             List<Client> resultClientList = Client.GetAll();
-            
+
             Assert.Equal(testClientList, resultClientList);
+        }
+
+        [Fact]
+        public void StylistName_GetNameBasedOnId_string()
+        {
+            Stylist newStylist = new Stylist("Claire", 3);
+            newStylist.Save();
+            Client testClient  = new Client("Marge", "trim", newStylist.GetId());
+            testClient.Save();
+
+            string testString = "Claire";
+            string resultString = testClient.StylistName();
+
+            Assert.Equal(testString, resultString);
         }
 
         public void Dispose()
