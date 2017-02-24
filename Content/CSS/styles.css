@@ -3,7 +3,7 @@ body{
 }
 
 .container {
-    width: 60%;
+    width: 40%;
 }
 
 .main-links a {
@@ -49,6 +49,10 @@ h3 {
 a, label {
     font-family: 'Sofia', cursive;
     font-size: 24px;
+}
+
+button {
+    font-family: 'Sofia', cursive;
 }
 
 li {
