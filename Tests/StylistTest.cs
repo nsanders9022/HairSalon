@@ -4,9 +4,6 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-
-////////////uncomment client.delete all
-
 namespace HairSalonApp
 {
     public class HairSalonTest : IDisposable
@@ -61,7 +58,7 @@ namespace HairSalonApp
         public void Dispose()
         {
             Stylist.DeleteAll();
-            // Client.DeleteAll();
+            Client.DeleteAll();
         }
     }
 }
