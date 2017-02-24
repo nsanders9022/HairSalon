@@ -111,7 +111,7 @@ namespace HairSalonApp
                int clientId = rdr.GetInt32(0);
                string clientName = rdr.GetString(1);
                string clientHairStyle = rdr.GetString(2);
-               int clientStylistId = rdr.GetInt32(4);
+               int clientStylistId = rdr.GetInt32(3);
                Client newClient = new Client(clientName, clientHairStyle, clientStylistId, clientId);
                AllClients.Add(newClient);
            }
