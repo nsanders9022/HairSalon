@@ -65,6 +65,24 @@ namespace HairSalonApp
             Assert.Equal(testString, resultString);
         }
 
+        public void Delete_DeleteClientFromDatabase_null()
+        {
+            Client testClient1 = new Client("Marge", "trim", 1);
+            Client testClient2 = new Client("Hector", "go bald", 4);
+            Client testClient3 = new Client("Rachel", "highlights", 2);
+
+            testClient1.Save();
+            testClient2.Save();
+            testClient3.Save();
+
+            testClient2.Delete();
+
+            List<Client> resultClient = Client.GetAll();
+            List<Client> testClientList = new List<Client> {testClient1, testClient3};
+
+            Assert.Equal(resultClient, testClientList);
+        }
+
         public void Dispose()
         {
             Client.DeleteAll();
