@@ -98,6 +98,16 @@ namespace HairSalonApp
             Assert.Equal(resultClient, testClientList);
         }
 
+        [Fact]
+        public void Find_FindClientById_true()
+        {
+           Client testClient = new Client("Hector", "go bald", 4);
+           testClient.Save();
+
+           Client foundClient = Client.Find(testClient.GetId());
+           Assert.Equal(testClient, foundClient);
+        }
+
         public void Dispose()
         {
             Client.DeleteAll();
