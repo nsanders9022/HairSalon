@@ -53,6 +53,11 @@ namespace HairSalonApp
                 model.Add("clients", StylistClients);
                 return View["stylist.cshtml", model];
             };
+
+            Get["/clients/{id}"] = parameters => {
+               Client SelectedClient = Client.Find(parameters.id);
+               return View["client.cshtml", SelectedClient];
+           };
         }
     }
 }
