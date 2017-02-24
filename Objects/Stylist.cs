@@ -84,6 +84,35 @@ namespace HairSalonApp
             }
         }
 
+        public static List<Stylist> GetAll()
+        {
+            List<Stylist> AllStylists = new List<Stylist>{};
+
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM stylists;", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                int stylistId = rdr.GetInt32(0);
+                string stylistName = rdr.GetString(1);
+                int stylistExperience = rdr.GetInt32(2);
+
+                Stylist newStylist = new Stylist(stylistName, stylistExperience, stylistId);
+                AllStylists.Add(newStylist);
+            }
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
+            return AllStylists;
+        }
 
        public static void DeleteAll()
         {
