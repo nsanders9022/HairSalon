@@ -147,6 +147,37 @@ namespace HairSalonApp
             return clients;
         }
 
+        public void Update(string newStylistName)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE stylists SET name = @NewStylistName OUTPUT INSERTED.name WHERE id = @StylistId;", conn);
+
+            SqlParameter newStylistNameParameter = new SqlParameter("@NewStylistName", newStylistName);
+            cmd.Parameters.Add(newStylistNameParameter);
+
+            SqlParameter stylistIdParameter = new SqlParameter("@StylistId", this.GetId());
+            cmd.Parameters.Add(stylistIdParameter);
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                this._name = rdr.GetString(0);
+            }
+
+            if (rdr !=null)
+            {
+                rdr.Close();
+            }
+
+            if (conn != null)
+            {
+                conn.Close();
+            }
+        }
+
 
        public static void DeleteAll()
         {
