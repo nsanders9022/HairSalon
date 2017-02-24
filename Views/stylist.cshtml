@@ -2,8 +2,8 @@
   Layout="Shared/_Layout.cshtml";
 }
 
-<h3>@Model["stylist"].GetName()'s years of experience: @Model["stylist"].GetExperience()</h3>
-<h3>Here are all of @Model["stylist"].GetName()'s clients':</h3>
+<h3><span class="name">@Model["stylist"].GetName()'s years of experience:</span> @Model["stylist"].GetExperience()</h3>
+<h3><span class="name">Here are all of @Model["stylist"].GetName()'s clients':</span></h3>
 
 @if (@Model["clients"].Count == 0)
 {
@@ -14,7 +14,8 @@ else
   <ol>
     @foreach (var client in @Model["clients"])
     {
-        <li><a href='/clients/@client.GetId()'>@client.GetName()</a> |  <a href="/client/edit/@client.GetId()">Edit</a>  | <a href="/client/delete/@client.GetId()">Delete</a></li>
+        <li><a href='/clients/@client.GetId()' class="name">@client.GetName()</a></li>
+        <li><a href="/client/edit/@client.GetId()">Edit</a>  | <a href="/client/delete/@client.GetId()">Delete</a></li>
     }
   </ol>
 }

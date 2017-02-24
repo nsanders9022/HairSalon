@@ -1,0 +1,70 @@
+body{
+    background-color: #b29bc4;
+}
+
+.container {
+    width: 60%;
+}
+
+.main-links a {
+    font-size: 50px;
+    text-align: center;
+}
+a {
+    font-size: 16px;
+}
+
+.banner {
+    background-image: url("http://www.thesalon-uk.com/template/banner4.jpg");
+    height: 400px;
+    margin-top: -100px;
+    background-position: center;
+}
+
+.header{
+    padding-top: 200px;
+    padding-left: 100px;
+    font-weight: bold;
+    font-family: 'Calligraffitti', cursive;
+    font-size: 72px;
+    text-align: left;
+}
+
+h1 {
+    font-family: 'Calligraffitti', cursive;
+    font-size: 56px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Calligraffitti', cursive;
+    font-size: 48px;
+}
+
+h3 {
+    font-family: 'Calligraffitti', cursive;
+    font-size: 36px;
+}
+
+a, label {
+    font-family: 'Sofia', cursive;
+    font-size: 24px;
+}
+
+li {
+    font-size: 30px;
+    list-style: none;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+a {
+    color: gray;
+}
+
+li a {
+    color: black;
+}
