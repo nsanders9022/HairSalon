@@ -15,12 +15,14 @@ This web application allows the user to enter in new stylists that work at the s
 * Run SQL in Window's Power Shell by typing in the command: sqlcmd -S "(localdb)\mssqllocaldb"
 * To create the database type the following command into Windows Power Shell
 CREATE DATABASE hair_salon
-* To create the client table type the following command into Windows Power Shell
+* To enter into the database enter the command: USE hair_salon; GO
+* To create the client table type the following command into Windows Power Shell:
 CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), hair_style VARCHAR(255), stylist_id INT);
 GO;
-* To create the stylist table type the following command into Windows Power Shell
+* To create the stylist table type the following command into Windows Power Shell:
 CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255), experience INT);
 GO;
+* In Microsoft SQL Server Manager, back up the database and restore a hair_salon_test database.
 * Use command "dnu restore" in command prompt/shell
 * Use command "dnx kestrel" to start server
 * Navigate to http://localhost:5004 in web browser of choice
