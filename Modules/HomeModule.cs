@@ -93,6 +93,17 @@ namespace HairSalonApp
                 List<Stylist> AllStylists = Stylist.GetAll();
                 return View["stylists.cshtml", AllStylists];
             };
+
+            Get["/stylist/edit{id}"] = parameters => {
+                Stylist SelectedStylist = Stylist.Find(parameters.id);
+                return View["edit_stylist_form.cshtml", SelectedStylist];
+            };
+
+            Patch["/stylist/edit/{id}"] = parameters => {
+                Stylist SelectedStylist = Stylist.Find(parameters.id);
+                SelectedStylist.Update(Request.Form["new-stylist-name"]);
+                return View["stylist.cshtml", SelectedStylist];
+            };
         }
     }
 }
